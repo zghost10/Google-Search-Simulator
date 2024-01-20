@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   postgres:
-    container_name: bm-server-local
-    ports:
-      - 5432:5432
-    image: postgres:15.5
+    container_name: bm-mongo-local
+    build: ./compose/mongodb
     restart: always
+    ports:
+      - 27017:27017
     env_file:
       - ./.env
     volumes:
