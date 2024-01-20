@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Search {
+  id              String              @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  link            String
+  snippet         String
+  position        Int
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @default(now())
+}
