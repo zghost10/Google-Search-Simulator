@@ -57,7 +57,7 @@ const Home: FC = () => {
               type="text" id="searchField" required
               className="
                 bg-transparent hover:bg-[#303134] focus:bg-[#303134] border border-zinc-600 text-gray-200 text-sm 
-                rounded-full focus:outline-none block w-[37rem] h-[2.9rem] ps-10 p-3
+                rounded-full focus:outline-none block w-[27rem] lg:w-[37rem] h-[2.9rem] ps-10 p-3
               "
               value={searchField} onChange={(e) => setSearchField(e.target.value)}
             />
@@ -81,19 +81,19 @@ const Home: FC = () => {
           </a>
         </div>
         <hr className="h-px border-0 bg-gray-700"></hr>
-        <div className="flex justify-between items-center px-2">
-          <div className="flex justify-start items-center px-8 py-3.5 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-center md:px-2">
+          <div className="flex text-center justify-center md:justify-start items-center px-8 py-3.5 gap-8">
             {
-              bottomLeft.map((option) => (
-                <a href="#" className="text-sm">{option}</a>
+              bottomLeft.map((option, key) => (
+                <a key={key} href="#" className="text-sm">{option}</a>
               ))
             }
           </div>
 
           <div className="flex justify-start items-center px-8 py-3.5 gap-8">
             {
-              bottomRight.map((option) => (
-                <a href="#" className="text-sm">{option}</a>
+              bottomRight.map((option, key) => (
+                <a key={key} href="#" className="text-sm">{option}</a>
               ))
             }
           </div>

@@ -43,10 +43,10 @@ const Result = () => {
 
   return (
     <div className="relative flex flex-col h-full gap-3">
-      <div className="container mx-auto max-w-screen-lg flex flex-col mb-2">
+      <div className="container mx-auto max-w-screen-lg flex flex-col mb-2 px-8 md:px-0">
         <div className="flex items-center justify-between w-full">
-          <div className="flex justify-start items-center pt-7 pb-4 gap-10">
-            <Link to="/"><img className="h-[30px]" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" alt="google_logo" /></Link>
+          <div className="flex shrink-0 justify-start items-center pt-7 pb-4 gap-10">
+            <Link to="/"><img className="w-[92px] h-[30px]" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" alt="google_logo" /></Link>
             
             <form onSubmit={handleSubmit}>
               <input
@@ -60,7 +60,7 @@ const Result = () => {
             </form>
           </div>
 
-          <div className="absolute right-0 top-0 h-full">
+          <div className="absolute right-0 top-0 h-full hidden md:block">
             <div className="flex items-center pt-7 pb-4 px-6 gap-2">
               <button className="bg-transparent bg-transparent hover:bg-[#303134] p-2 rounded-full">
                 <PiGear className="w-[1.5rem] h-[1.5rem]"/>
@@ -92,7 +92,7 @@ const Result = () => {
 
       <hr className="h-px border border-zinc-700 w-full"/>
 
-      <div className="container mx-auto max-w-screen-lg">
+      <div className="container mx-auto max-w-screen-lg px-8 md:px-0">
         <div className="flex flex-col items-start py-6 pb-10 gap-8 max-w-xl">
         {
           searchResult?.map((res) => (
