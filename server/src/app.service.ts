@@ -1,11 +1,14 @@
-import { Injectable, StreamableFile } from '@nestjs/common';
-import { createReadStream } from 'fs';
-import { join } from 'path';
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from './prisma.service';
+import { Search, Prisma } from '@prisma/client';
 
 @Injectable()
-export class AppService {
-  getClient(): StreamableFile {
-    const file = createReadStream(join(process.cwd(), 'package.json'));
-    return new StreamableFile(file)
+export class SearchService {
+  constructor(private prisma: PrismaService) {}
+
+  async searches(
+    searchFindManyArgs?: Prisma.SearchFindManyArgs,
+  ): Promise<Search[] | null> {
+    return this.prisma.search.findMany(searchFindManyArgs);
   }
 }
