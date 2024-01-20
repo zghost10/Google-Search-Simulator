@@ -11,6 +11,19 @@ datasource db {
 }
 
 model Search {
+  //Attributes
+  id              String              @id @default(auto()) @map("_id") @db.ObjectId
+  query           String
+  keywords        String[]
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @default(now())
+
+  //Relationships
+  results          Result[]
+}
+
+model Result {
+  //Attributes
   id              String              @id @default(auto()) @map("_id") @db.ObjectId
   title           String
   link            String
@@ -18,4 +31,8 @@ model Search {
   position        Int
   createdAt       DateTime            @default(now())
   updatedAt       DateTime            @default(now())
+
+  //relationships
+  search          Search              @relation(fields: [searchId], references: [id])
+  searchId        String              @db.ObjectId
 }

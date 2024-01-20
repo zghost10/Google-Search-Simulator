@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { SearchService } from './app.service';
-import { Search } from '@prisma/client';
+import { firstValueFrom } from 'rxjs';
 
 @Controller()
 export class AppController {
@@ -9,7 +9,14 @@ export class AppController {
   ) {}
 
   @Get('search')
-  async search(): Promise<Search[]> {
-    return this.searchService.searches()
+  async search(
+    @Query("query") query:string,
+    @Query("locale") locale:string,
+    @Query("lang") lang:string,
+  ) {
+    const { data } = await firstValueFrom(this.searchService.queryBot(query, locale, lang))
+    const search = await this.searchService.createSearch({data: {query, keywords: query.split(" ")}})
+    this.searchService.createManyResult({data: data.map(res => ({...res, searchId: search.id}))})
+    return data
   }
 }
