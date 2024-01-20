@@ -2,16 +2,15 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { Button } from '../components/Button'
 import { CgMenuGridO } from 'react-icons/cg'
 import { FC, useState } from 'react'
-import Result from './result'
-import { search } from '../services/search'
+import { useNavigate } from 'react-router-dom'
 
 const Home: FC = () => {
+  const navigate = useNavigate()
   const [searchField, setSearchField] = useState("")
-  const [searchResult, setSearchResult] = useState<SearchResult[]|null>(null)
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSearchResult(await search.query(searchField))
+    navigate(`/search?query=${searchField.split(" ").join("+")}`)
   }
 
   const bottomLeft = [
@@ -27,7 +26,7 @@ const Home: FC = () => {
     'Configurações'
   ]
 
-  return searchResult === null ? (
+  return (
     <div className="flex flex-col justify-between items-center w-full h-full">
       <div className="flex flex-col w-full">
         <div className="flex justify-end items-center h-16 p-4 gap-4 w-full">
@@ -40,17 +39,17 @@ const Home: FC = () => {
           </button>
           
           <button className="border border-4 border-transparent hover:border-[#303134] focus:border-[#303134] rounded-full">
-            <div className="relative inline-flex items-center justify-center w-[32px] h-[32px] overflow-hidden bg-gray-600 rounded-full">
-              <span className="font-medium text-gray-300">JL</span>
+            <div className="relative inline-flex items-center justify-center w-[32px] h-[32px] overflow-hidden bg-slate-800 rounded-full">
+              <span className="font-medium text-sm text-gray-200">BM</span>
             </div>
           </button>
         </div>
 
-        <div className="flex flex-col justify-center items-center gap-7 mb-16">
+        <form onSubmit={handleSearch} className="flex flex-col justify-center items-center gap-7 mb-16">
           <label htmlFor="searchField">
             <img className="h-[92px]" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" alt="google_logo" />
           </label>
-          <form onSubmit={handleSearch} className="relative">
+          <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
               <FaMagnifyingGlass className="w-[0.8rem] h-[0.8rem] text-gray-400"/>
             </div>
@@ -62,7 +61,7 @@ const Home: FC = () => {
               "
               value={searchField} onChange={(e) => setSearchField(e.target.value)}
             />
-          </form>
+          </div>
           <div className='flex justify-center gap-3'>
             <Button submit>
               Pesquisa Google
@@ -72,7 +71,7 @@ const Home: FC = () => {
               Estou com sorte
             </Button>
           </div>
-        </div>
+        </form>
       </div>
 
       <div className="w-full flex flex-col bg-[#171717]">
@@ -101,8 +100,6 @@ const Home: FC = () => {
         </div>
       </div>
     </div>
-  ) : (
-    <Result data={searchResult}/>
   )
 }
 

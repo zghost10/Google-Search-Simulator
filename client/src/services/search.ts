@@ -5,8 +5,6 @@ class Search {
     headers: {
       "Content-Type": "application/json"
     },
-    mode: "cors",
-    credentials: "include",
     cache: "no-cache",
     redirect: "follow",
     referrerPolicy: "no-referrer",
