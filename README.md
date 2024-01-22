@@ -31,7 +31,7 @@ $ ./up
 $ sudo bash ./up.sh
 
 # Docker command
-$ docker compose -f production.yml up -d --build
+$ docker compose up -d --build
 ```
 And It's almost the same to down the application, simply choose `one` command below:
 
@@ -43,7 +43,7 @@ $ ./down
 $ sudo bash ./down.sh
 
 # Docker command
-$ docker compose -f production.yml down
+$ docker compose down
 ```
 
 ## Development
