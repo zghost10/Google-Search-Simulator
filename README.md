@@ -1,26 +1,22 @@
-<div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-block: 6rem;">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="100" alt="Nest Logo" /></a>
-  <h2>+</h2>
-  <a href="http://reactjs.dev/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="100" alt="React Logo" /></a>
-  <h2>+</h2>
-  <a href="https://go.dev/" target="blank"><img src="https://go.dev/images/go-logo-white.svg" width="100" alt="Go Logo" /></a>
-</div>
+<h3 align="center"><img src="https://nestjs.com/img/logo-small.svg" width="100" alt="Nest Logo" /><span>+</span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="100" alt="React Logo" /><span>+</span><img src="https://go.dev/images/go-logo-white.svg" width="100" alt="Go Logo" /></h3>
 
-<p align="center">This a demonstration of my skills. You can see other projects by <a href="http://caroso.dev" target="_blank">clicking here</a>, there you'll be able to see clearly which skills was used to build each one.</p>
+<p align="center">This is a demonstration of my skills. You can see other projects by <a href="http://caroso.dev" target="_blank">clicking here</a>, there you'll be able to see clearly which skills was used to build each one.</p>
 
 ## Description
 
-Challenge: To build a Google Search simulator using Nest.js on server-side, React.js on client-side and Golang app for bot development.
+Challenge: To build a Google Search simulator using Nest.js on server-side, React.js on client-side and Golang app for search bot development.
 
 ### Home page
 <img src="https://caroso-dev.s3.amazonaws.com/projects/bm/img1.png" alt="home"/>
 
 ### Search result
-<img src="https://caroso-dev.s3.amazonaws.com/projects/bm/img2.png" style="margin-bottom: 2rem;" alt="result"/>
+<img src="https://caroso-dev.s3.amazonaws.com/projects/bm/img2.png"/>
 
+### Database preview
+<img src="https://caroso-dev.s3.amazonaws.com/projects/bm/img3.png" style="margin-bottom: 2rem;" alt="result"/>
 
 ## Important to know!!!
-MongoDB database which it's url is in environment variables should be an `Replica Set (cluster)`!
+MongoDB database which it's url is in environment variables should be a `Replica Set (cluster)`!
 
 ## Production
 To up the application, simply choose `one` command below:
