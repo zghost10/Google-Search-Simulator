@@ -1,5 +1,5 @@
 class Search {
-  private url: string = "http://localhost:8000"
+  private url: string = import.meta.env.MODE === "production" ? "http://localhost" : "http://localhost:8000"
 
   private config: RequestInit = {
     headers: {

@@ -75,5 +75,5 @@ func main() {
 	router := gin.Default()
 	router.GET("/search", search)
 
-	router.Run("localhost:5000")
+	router.Run("0.0.0.0:5000")
 }

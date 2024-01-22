@@ -95,7 +95,8 @@ const Result = () => {
       <div className="container mx-auto max-w-screen-lg px-8 md:px-0">
         <div className="flex flex-col items-start py-6 pb-10 gap-8 max-w-xl">
         {
-          searchResult?.map((res) => (
+          searchResult ?
+          searchResult.map((res) => (
             <div>
               <a 
                 href={res.link??"#"}
@@ -106,7 +107,11 @@ const Result = () => {
               <p>{res.snippet}</p>
             </div>
           ))
-        }
+          : (
+            <div>
+              <h1>Back-end is offline!</h1>
+            </div>
+          )}
         </div>
       </div>
     </div>

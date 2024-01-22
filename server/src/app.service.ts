@@ -1,8 +1,8 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { Prisma, Search } from '@prisma/client';
 import { HttpService } from '@nestjs/axios';
-import { Observable, catchError, firstValueFrom, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AxiosResponse } from 'axios';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class SearchService {
     locale: string, 
     lang: string
   ): Observable<AxiosResponse<SearchResult[]>> {
-    return this.httpService.get(`http://127.0.0.1:5000/search?query=${query.split(" ").join("+")??""}&locale=${locale??"br"}&lang=${lang??"pt"}`)
+    return this.httpService.get(`${process.env.BOT_URL}/search?query=${query.split(" ").join("+")??""}&locale=${locale??"br"}&lang=${lang??"pt"}`)
   }
 
   async createSearch(
