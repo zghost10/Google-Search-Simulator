@@ -18,6 +18,22 @@ Challenge: To build a Google Search simulator using Nest.js on server-side, Reac
 ## Important to know!!!
 MongoDB database which it's url is in environment variables should be a `Replica Set (cluster)`!
 
+## Ports
+```bash
+# Once started you can access by using the ports bellow:
+
+# Production
+- http://localhost:80
+
+# Development
+# Client
+- http://localhost:3000
+# Bot
+- http://localhost:5000
+# Server
+- http://localhost:8000
+```
+
 ## Production
 To up the application, simply choose `one` command below:
 
